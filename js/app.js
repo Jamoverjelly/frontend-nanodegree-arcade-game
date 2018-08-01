@@ -3,7 +3,7 @@ function Enemy(xPos, yPos, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = xPos;
-    this.y = yPos
+    this.y = yPos - 20; // Move y-position down
     this.crawl = 101;    
     this.speed = speed;
     // The image/sprite for our enemies, this uses
