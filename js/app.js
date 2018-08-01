@@ -3,7 +3,7 @@ function Enemy(xPos, yPos, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = xPos;
-    this.y = yPos;
+    this.y = yPos
     this.crawl = 101;    
     this.speed = speed;
     // The image/sprite for our enemies, this uses
@@ -18,11 +18,16 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    // If the enemy object instance has not passed the right-boundary
+    // If the enemy object instance has moved past the right-boundary
     if (this.x < this.crawl * 5) {
         // Move the enemy object forward
         // Multiply rightward movement by dt to maintain constant speed
         this.x += (this.speed * dt);
+    }
+    // Once enemy object instance has exceeded right-boundary (off-canvas)
+    else {
+        // Restart enemy object instance to one cell left of left-boundary (off-canvas)
+        this.x = -this.crawl
     }
 };
 
