@@ -25,11 +25,29 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+function Player() {
+    this.x = 0;
+    this.y = 0;
+    this.sprite = 'images/char-boy.png';
+};
+
+// Adding an update() method to the Player class, initially does nothing
+Player.prototype.update = function(dt) {
+
+};
+
+// Draw the player on the screen and test
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+// Instantiating player object instance for test
+let player = new Player();
 
 
 // This listens for key presses and sends the keys to your
