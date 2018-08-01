@@ -46,6 +46,44 @@ Player.prototype.render = function() {
 };
 
 
+// Update player object instance with new x and y properties according to input
+Player.prototype.handleInput = function(input) {
+    switch(input) {
+        case 'left':
+            if (this.x > 0) {
+                this.x -= this.cross;
+            }
+            break;
+        case 'right':
+            if (this.x < this.cross * 4) {
+                this.x += this.cross;
+            }            
+            break;
+        case 'up':
+            if (this.y > 0) {
+                this.y -= this.rise;
+            }
+            break;
+        case 'down':
+            if (this.y < this.rise * 4) {
+                this.y += this.rise;
+            }
+            break;
+    }
+}
+
+/** ######## Begin Attribution ########
+ *  Referenced helper code for handling user input to control player movement at
+ *  https://discussions.udacity.com/t/classic-arcade-game-grade/183326
+ *  on July 31, 2018
+ *  
+ *  Reviewed JavaScript switch statements at
+ *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+ *  on July 31, 2018
+ *  ######## End Attribution ########
+ */
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
