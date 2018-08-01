@@ -2,6 +2,8 @@
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+    this.x = 0;
+    this.y = 0;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -91,6 +93,9 @@ Player.prototype.handleInput = function(input) {
 // Instantiating player object instance for test
 let player = new Player();
 
+let allEnemies = [];
+const bugOne = new Enemy();
+allEnemies.push(bugOne);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
