@@ -1,9 +1,9 @@
 // Enemies our player must avoid
-function Enemy(xPos, yPos, speed) {
+function Enemy(xPos, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = xPos;
-    this.y = yPos - 20; // Move y-position down
+    this.y; // = yPos - 20; // Move y-position down
     this.crawl = 101;    
     this.speed = speed;
     // The image/sprite for our enemies, this uses
@@ -27,7 +27,10 @@ Enemy.prototype.update = function(dt) {
     // Once enemy object instance has exceeded right-boundary (off-canvas)
     else {
         // Restart enemy object instance to one cell left of left-boundary (off-canvas)
-        this.x = -this.crawl
+        this.x = -this.crawl;
+
+        const yArr = [83, 166, 249];
+        this.y = (yArr[Math.floor(Math.random() * yArr.length)]) - 20;
     }
 };
 
@@ -106,7 +109,7 @@ Player.prototype.handleInput = function(input) {
 // Instantiating player object instance for test
 const player = new Player();
 
-const bugOne = new Enemy(-101, (83 * 2), 200);
+const bugOne = new Enemy(-101, 200);
 const allEnemies = [];
 allEnemies.push(bugOne);
 
