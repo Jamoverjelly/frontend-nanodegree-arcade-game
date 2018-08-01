@@ -1,11 +1,12 @@
 // Enemies our player must avoid
-function Enemy(xPos, speed) {
+function Enemy() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    this.x = xPos;
-    this.y; // = yPos - 20; // Move y-position down
+    this.startPosX = -101;
+    this.x = this.startPosX;
+    this.y;
     this.crawl = 101;    
-    this.speed = speed;
+    this.speed // = speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -29,8 +30,19 @@ Enemy.prototype.update = function(dt) {
         // Restart enemy object instance to one cell left of left-boundary (off-canvas)
         this.x = -this.crawl;
 
+        // Randomize y-position for an enemy object's looping behavior
         const yArr = [83, 166, 249];
         this.y = (yArr[Math.floor(Math.random() * yArr.length)]) - 20;
+
+        // Randomize speed for enemy object movement
+        const speedArr = [200, 225, 250, 275, 300, 325, 350, 375, 400];
+        this.speed = (speedArr[Math.floor(Math.random() * speedArr.length)]);
+        /** ######## Begin Attribution ########
+        *  Referenced helper code for calling random indexes from an array at
+        *  https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
+        *  on August 1, 2018  
+        *  ######## End Attribution ########
+        */
     }
 };
 
@@ -109,9 +121,11 @@ Player.prototype.handleInput = function(input) {
 // Instantiating player object instance for test
 const player = new Player();
 
-const bugOne = new Enemy(-101, 200);
 const allEnemies = [];
-allEnemies.push(bugOne);
+const bugOne = new Enemy();
+const bugTwo = new Enemy();
+// const bugThree = new Enemy();
+allEnemies.push(bugOne, bugTwo);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
