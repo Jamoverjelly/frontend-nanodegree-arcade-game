@@ -26,8 +26,12 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 function Player() {
-    this.x = 0;
-    this.y = 0;
+    this.cross = 101;
+    this.rise = 83;
+    this.startPosX = this.cross * 2;
+    this.startPosY = (this.rise * 5) - 20;
+    this.x = this.startPosX;
+    this.y = this.startPosY;
     this.sprite = 'images/char-boy.png';
 };
 
