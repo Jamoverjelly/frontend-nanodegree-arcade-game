@@ -1,7 +1,5 @@
 // Enemies our player must avoid
 function Enemy() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
     this.startPosX = -this.crawl;
     this.x = this.startPosX;
     this.y;
@@ -13,16 +11,11 @@ function Enemy() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
     // If the enemy object instance has moved past the right-boundary
     if (this.x < this.crawl * 5) {
         // Move the enemy object forward
         // Multiply rightward movement by dt to maintain constant speed
         this.x += (this.speed * dt);
-        // console.log(this.y);
     }
     // Once enemy object instance has exceeded right-boundary (off-canvas)
     else {
@@ -36,6 +29,7 @@ Enemy.prototype.update = function(dt) {
         // Randomize speed for enemy object movement
         const speedArr = [200, 225, 250, 275, 300, 325, 350, 375, 400];
         this.speed = (speedArr[Math.floor(Math.random() * speedArr.length)]);
+        
         /** ######## Begin Attribution ########
         *  Referenced helper code for calling random indexes from an array at
         *  https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
@@ -50,10 +44,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+// Player object constructor function
 function Player() {
     this.cross = 101;
     this.rise = 83;
@@ -64,10 +55,8 @@ function Player() {
     this.sprite = 'images/char-boy.png';
 };
 
-// Adding an update() method to the Player class, initially does nothing
-Player.prototype.update = function(dt) {
-    // console.log(this.y);
-};
+// Update() method for Player class
+// Player.prototype.update = function(dt) {};
 
 // Draw the player on the screen and test
 Player.prototype.render = function() {
@@ -123,7 +112,6 @@ const player = new Player();
 const allEnemies = [];
 const bugOne = new Enemy();
 const bugTwo = new Enemy();
-// const bugThree = new Enemy();
 allEnemies.push(bugOne, bugTwo);
 
 // This listens for key presses and sends the keys to your

@@ -79,7 +79,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -102,9 +101,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
 
-        // Collision detection conditional
+        // Start collision detection conditional
+
         // Divided each object's width property by 2 to narrow collision detection width
         // (i.e., objects will only be detected as colliding if they're very close to touching)
         if (player.x < (bugOne.x + bugOne.crawl/2) && 
@@ -124,6 +123,8 @@ var Engine = (function(global) {
             *  on August 1, 2018  
             *  ######## End Attribution ########
             */
+        
+        // End collision detection conditional
 
         // Win condition detection    
         if (player.y === -20) {
