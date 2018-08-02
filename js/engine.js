@@ -115,7 +115,7 @@ var Engine = (function(global) {
             (player.x + player.cross/2) > bugTwo.x &&
             player.y < (bugTwo.y + 83) &&
             (player.rise + player.y) > bugTwo.y)) {
-                alert('Hit!');
+                reset();
             }
         }
 
@@ -198,7 +198,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        player.x = player.startPosX;
+        player.y = player.startPosY;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
