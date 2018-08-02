@@ -96,12 +96,35 @@ var Engine = (function(global) {
     // on July 31, 2018
     // ######## End Attribution ######## //
 
+    // Access to both enemy object instances and player object exist here
+    // So we can build collision detection inside this function
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
         player.update();
-    }
+
+        // Collision detection conditional
+        // Divided each object's width property by 2 to narrow collision detection width
+        // (i.e., objects will only be detected as colliding if they're very close to touching)
+        if (player.x < (bugOne.x + bugOne.crawl/2) && 
+            (player.x + player.cross/2) > bugOne.x &&
+            player.y < (bugOne.y + 83) &&
+            (player.rise + player.y) > bugOne.y ||
+            (player.x < (bugTwo.x + bugTwo.crawl/2) && 
+            (player.x + player.cross/2) > bugTwo.x &&
+            player.y < (bugTwo.y + 83) &&
+            (player.rise + player.y) > bugTwo.y)) {
+                alert('Hit!');
+            }
+        }
+
+        /** ######## Begin Attribution ########
+        *  Referenced helper code for writing collision detection functionality on MDN:
+        *  https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+        *  on August 1, 2018  
+        *  ######## End Attribution ########
+        */
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every

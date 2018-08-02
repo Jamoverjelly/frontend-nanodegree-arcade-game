@@ -2,13 +2,11 @@
 function Enemy() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    this.startPosX = -101;
+    this.startPosX = -this.crawl;
     this.x = this.startPosX;
     this.y;
     this.crawl = 101;    
-    this.speed // = speed;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    this.speed;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -24,6 +22,7 @@ Enemy.prototype.update = function(dt) {
         // Move the enemy object forward
         // Multiply rightward movement by dt to maintain constant speed
         this.x += (this.speed * dt);
+        // console.log(this.y);
     }
     // Once enemy object instance has exceeded right-boundary (off-canvas)
     else {
@@ -67,7 +66,7 @@ function Player() {
 
 // Adding an update() method to the Player class, initially does nothing
 Player.prototype.update = function(dt) {
-
+    // console.log(this.y);
 };
 
 // Draw the player on the screen and test
