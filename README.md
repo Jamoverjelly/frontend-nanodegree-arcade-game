@@ -12,7 +12,7 @@ In this game you have a Player and Enemies (Bugs). The goal of the player is to 
 
 ## Playing The Game
 
-Play my version of the arcade game [here](https://jamoverjelly.github.io/frontend-nanodegree-arcade-game/).
+[Play my version of the arcade game here](https://jamoverjelly.github.io/frontend-nanodegree-arcade-game/).
 
 
 ## Project Specification
