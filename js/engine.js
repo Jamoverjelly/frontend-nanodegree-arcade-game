@@ -117,14 +117,20 @@ var Engine = (function(global) {
             (player.rise + player.y) > bugTwo.y)) {
                 reset();
             }
-        }
 
-        /** ######## Begin Attribution ########
-        *  Referenced helper code for writing collision detection functionality on MDN:
-        *  https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-        *  on August 1, 2018  
-        *  ######## End Attribution ########
-        */
+            /** ######## Begin Attribution ########
+            *  Referenced helper code for writing collision detection functionality on MDN:
+            *  https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+            *  on August 1, 2018  
+            *  ######## End Attribution ########
+            */
+
+        // Win condition detection    
+        if (player.y === -20) {
+            alert('You made it to safety!!');
+            reset();
+        }
+    }
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
@@ -198,6 +204,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        // Reset the game by returning player object instance to starting tile
         player.x = player.startPosX;
         player.y = player.startPosY;
     }
