@@ -14,6 +14,7 @@ In this game you have a Player and Enemies (Bugs). The goal of the player is to 
 
 [Play my version of the arcade game here](https://jamoverjelly.github.io/frontend-nanodegree-arcade-game/).
 
+Alternatively, you can load the game locally by downloading or cloning the repository to your own device and then open the project's `index.html` file in an ES6-compatible browser.
 
 ## Project Specification
 
